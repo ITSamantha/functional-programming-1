@@ -1,8 +1,9 @@
 stages:
-  - lint
-  - format
-  - build
-  - test
+  - build     
+  - lint       
+  - format      
+  - test      
+  - run_python  
 
 variables:
   DOTNET_ROOT: "/root/.dotnet"
@@ -10,49 +11,53 @@ variables:
 
 before_script:
   - apt-get update -y
-  - apt-get install -y wget
+  - apt-get install -y wget python3 python3-pip
   - wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
   - chmod +x dotnet-install.sh
   - ./dotnet-install.sh -c 7.0 
-  - dotnet tool install --global fantomas-tool --version "5.*"
-  - dotnet tool install --global FSharpLint.Tool --version "0.14.*"
+  - dotnet tool install --global fantomas-tool --version "5.*" 
+  - dotnet tool install --global FSharpLint.Tool --version "0.14.*" 
+  - pip3 install pylint 
 
-# Линтинг с FSharpLint
+build:
+  stage: build
+  script:
+    - dotnet restore src
+    - dotnet build src --no-restore --configuration Release 
+  artifacts:
+    paths:
+      - src/bin/Release 
+  allow_failure: false
+
 lint:
   stage: lint
   script:
     - fsharplint lint src
   allow_failure: false 
 
-# Форматирование с fantomas
 format:
   stage: format
   script:
-    - fantomas src --recurse
+    - fantomas src --recurse 
   artifacts:
     paths:
-      - src
+      - src 
   only:
     - merge_requests
 
-# Тестирование
 test:
   stage: test
   script:
-    - dotnet restore src
     - dotnet test src --no-restore
   artifacts:
     paths:
-      - ./TestResults
+      - ./TestResults 
   allow_failure: false
 
-# Сборка проекта
-build:
-  stage: build
+run_python:
+  stage: run_python
   script:
-    - dotnet build src --no-restore --configuration Release
-  artifacts:
-    paths:
-      - src/bin/Release
-  only:
-    - master
+    - pylint src/task7/*.py src/task26/*.py
+    - python3 src/task7/task7.py
+    - python3 src/task26/task26.py 
+  allow_failure: false
