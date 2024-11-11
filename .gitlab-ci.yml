@@ -1,0 +1,36 @@
+image: mcr.microsoft.com/dotnet/sdk:7.0
+
+stages:
+  - build
+  - test
+  - lint
+  - format
+
+variables:
+  DOTNET_ROOT: "/usr/share/dotnet"
+  PATH: "$PATH:$DOTNET_ROOT/tools"
+
+before_script:
+  - dotnet restore
+
+build:
+  stage: build
+  script:
+    - dotnet build --no-restore -c Release
+
+test:
+  stage: test
+  script:
+    - dotnet test --no-restore --verbosity normal
+
+lint:
+  stage: lint
+  script:
+    - dotnet tool install -g FSharpLint.Tool
+    - dotnet fsharplint lint --fail-on-warnings
+
+format:
+  stage: format
+  script:
+    - dotnet tool install -g fantomas
+    - dotnet fantomas . --recurse --check
