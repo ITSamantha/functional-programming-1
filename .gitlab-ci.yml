@@ -1,36 +1,58 @@
-image: mcr.microsoft.com/dotnet/sdk:7.0
-
 stages:
-  - build
-  - test
   - lint
   - format
+  - build
+  - test
 
 variables:
-  DOTNET_ROOT: "/usr/share/dotnet"
-  PATH: "$PATH:$DOTNET_ROOT/tools"
+  DOTNET_ROOT: "/root/.dotnet"
+  PATH: "$PATH:/root/.dotnet:/root/.dotnet/tools"
 
 before_script:
-  - dotnet restore
+  - apt-get update -y
+  - apt-get install -y wget
+  - wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+  - chmod +x dotnet-install.sh
+  - ./dotnet-install.sh -c 7.0 
+  - dotnet tool install --global fantomas-tool --version "5.*"
+  - dotnet tool install --global FSharpLint.Tool --version "0.14.*"
 
-build:
-  stage: build
-  script:
-    - dotnet build --no-restore -c Release
-
-test:
-  stage: test
-  script:
-    - dotnet test --no-restore --verbosity normal
-
+# Линтинг с FSharpLint
 lint:
   stage: lint
   script:
-    - dotnet tool install -g FSharpLint.Tool
-    - dotnet fsharplint lint --fail-on-warnings
+    - fsharplint lint src
+  allow_failure: false 
 
+# Форматирование с fantomas
 format:
   stage: format
   script:
-    - dotnet tool install -g fantomas
-    - dotnet fantomas . --recurse --check
+    - fantomas src --recurse
+  artifacts:
+    paths:
+      - src
+  only:
+    - merge_requests
+
+# Тестирование
+test:
+  stage: test
+  script:
+    - dotnet restore src
+    - dotnet test src --no-restore
+  artifacts:
+    paths:
+      - ./TestResults
+  allow_failure: false
+
+# Сборка проекта
+build:
+  stage: build
+  script:
+    - dotnet build src --no-restore --configuration Release
+  artifacts:
+    paths:
+      - src/bin/Release
+  only:
+    - master
