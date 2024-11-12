@@ -1,0 +1,4 @@
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\check\obj\Debug\net8.0\program.fsproj.AssemblyReference.cache
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\check\obj\Debug\net8.0\program.AssemblyInfoInputs.cache
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\check\obj\Debug\net8.0\program.AssemblyInfo.fs
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\check\obj\Debug\net8.0\program.fsproj.CoreCompileInputs.cache
