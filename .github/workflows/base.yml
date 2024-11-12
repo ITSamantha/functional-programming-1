@@ -96,8 +96,12 @@ jobs:
       - name: Install dependencies
         run: pip3 install pylint
 
-      - name: Run Python Lint and Scripts
-        run: |
-          pylint src/task7/python/task7.py src/task26/python/task26.py
-          python3 src/task7.py
-          python3 src/task26.py
+      - name: Run Python Lint
+        run: pylint src/task7/python/task7.py src/task26/python/task26.py
+      
+      - name: Task 7 Python
+        run: python3 src/task7/python/task7.py
+
+      - name: Task 26 Python
+        run: python3 src/task26/python/task26.py
+          
