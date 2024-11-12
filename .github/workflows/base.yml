@@ -24,6 +24,7 @@ jobs:
           sudo apt-get install mono-complete
           pip3 install pylint
           dotnet tool install --global fantomas-tool --version "4.*"
+          echo "/home/runner/.dotnet/tools" >> $GITHUB_PATH
 
 
         
