@@ -14,8 +14,10 @@ let findNthPrime (n: int) : int =
     let primesSeq =
         Seq.initInfinite ((+) 2)
         |> Seq.filter isPrimeNumber
-
-    Seq.item (n - 1) primesSeq
+        |> Seq.take n        
+        |> Seq.last
+    
+    primesSeq
 
 [<EntryPoint>]
 let main _ =

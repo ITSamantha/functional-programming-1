@@ -11,14 +11,11 @@ let isPrimeNumber (number: int) : bool =
     check 2
 
 let findNthPrime (n: int) : int =
-    let primesMap =
-        Seq.initInfinite ((+) 2)
-        |> Seq.filter isPrimeNumber
-        |> Seq.mapi (fun i p -> (i, p))
-
-    primesMap
-    |> Seq.find (fun (i, _) -> i = n - 1)
-    |> snd
+    Seq.initInfinite ((+) 2)
+    |> Seq.filter isPrimeNumber
+    |> Seq.map (fun x -> x)           
+    |> Seq.take n
+    |> Seq.last
 
 [<EntryPoint>]
 let main _ =

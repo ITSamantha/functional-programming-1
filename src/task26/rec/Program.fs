@@ -14,20 +14,16 @@ let cycleLength d =
 
     findCycle 0 Map.empty 1
 
-let rec findMaxCycleRec n d maxD maxLen =
-    if d >= n then
-        maxD
+
+let rec findMaxCycleRec  d limit maxD maxLen =
+    if d >= limit then maxD
     else
-        let len = cycleLength d
-
-        if len > maxLen then
-            findMaxCycleRec n (d + 1) d len
-        else
-            findMaxCycleRec n (d + 1) maxD maxLen
-
+        let cycle = cycleLength d
+        if cycle > maxLen then findMaxCycleRec  (d + 1) limit d cycle
+        else findMaxCycleRec  (d + 1) limit maxD maxLen
 
 [<EntryPoint>]
 let main _ =
-    let result = findMaxCycleRec 1000 1 1 0
+    let result = findMaxCycleRec 1 1000 1 0
     printfn "%d" result
     0
