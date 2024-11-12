@@ -5,6 +5,8 @@ stages:
   - test
   - run
 
+image: ubuntu:latest
+
 before_script:
   - apt-get update -y
   - apt-get install -y dotnet-sdk-7.0
