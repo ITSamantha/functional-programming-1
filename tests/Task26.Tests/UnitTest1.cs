@@ -32,21 +32,21 @@ public class Tests
         [Test]
         public void TestFindMaxCycleRec()
         {
-            var result = task26rec.findMaxCycleRec(1000, 1, 1, 0);
+            var result = task26rec.findMaxCycleRec(1, 1000, 1, 0);
             Assert.That(result, Is.EqualTo(983), "The number with the longest cycle length in the range should be 983");
         }
 
         [Test]
         public void TestFindMaxCycleRecWithSmallerRange()
         {
-            var result = task26rec.findMaxCycleRec(10, 1, 1, 0);
+            var result = task26rec.findMaxCycleRec(1, 10, 1, 0);
             Assert.That(result, Is.EqualTo(7), "The number with the longest cycle length in the range should be 7");
         }
 
         [Test]
         public void TestFindMaxCycleRecWithLargeRange()
         {
-            var result = task26rec.findMaxCycleRec(2000, 1, 1, 0);
+            var result = task26rec.findMaxCycleRec(1, 2000, 1, 0);
             Assert.That(result, Is.EqualTo(1979), "The number with the longest cycle length in the range should be 1979");
         }
     }
