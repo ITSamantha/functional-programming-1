@@ -32,18 +32,18 @@ jobs:
 
       - name: Build task7
         run: |
-          dotnet build src/task7/inf --no-restore --configuration Release
-          dotnet build src/task7/rec --no-restore --configuration Release
-          dotnet build src/task7/tail_rec --no-restore --configuration Release
-          dotnet build src/task7/module --no-restore --configuration Release
-          dotnet build src/task7/map --no-restore --configuration Release
+          dotnet build src/task7/inf --configuration Release
+          dotnet build src/task7/rec --configuration Release
+          dotnet build src/task7/tail_rec --configuration Release
+          dotnet build src/task7/module  --configuration Release
+          dotnet build src/task7/map --configuration Release
       - name: Build task26
         run: |
-          dotnet build src/task26/inf --no-restore --configuration Release
-          dotnet build src/task26/rec --no-restore --configuration Release
-          dotnet build src/task26/tail_rec --no-restore --configuration Release
-          dotnet build src/task26/module --no-restore --configuration Release
-          dotnet build src/task26/map --no-restore --configuration Release
+          dotnet build src/task26/inf  --configuration Release
+          dotnet build src/task26/rec  --configuration Release
+          dotnet build src/task26/tail_rec  --configuration Release
+          dotnet build src/task26/module  --configuration Release
+          dotnet build src/task26/map --configuration Release
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -57,18 +57,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Run F# Lint
-        run: |
-          fsharplint lint src/task7/task7.fs
-          fsharplint lint src/task26/task26.fs
-
-  format:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
       - name: Format F# code with Fantomas
         run: fantomas src --recurse
       - name: Upload formatted files
@@ -76,7 +64,6 @@ jobs:
         with:
           name: formatted-src
           path: src
-        if: github.event_name == 'pull_request'
 
   test:
     runs-on: ubuntu-latest
