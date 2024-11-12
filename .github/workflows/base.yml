@@ -38,10 +38,10 @@ jobs:
         run: ./.config/dotnet-tools/fantomas src --recurse
 
       - name: Upload formatted files
-          uses: actions/upload-artifact@v3
-          with:
-            name: formatted-src
-            path: src
+        uses: actions/upload-artifact@v3
+        with:
+          name: formatted-src
+          path: src
   
 
   build:
