@@ -1,9 +1,9 @@
-import math
-
 """
 This module provides functions to determine if a number is prime
 and to find the nth prime number.
 """
+import math
+
 
 def is_number_prime(number: int) -> bool:
     """
