@@ -18,7 +18,7 @@ let getCycleLengths (candidates: int list) : (int * int) list =
     candidates
     |> List.map (fun d -> (d, cycleLength d))
 
-let findMaxCycleRec (n: int) (d: int) (maxD: int) (maxLen: int) : int =
+let findMaxCycleRec n d maxD maxLen : int =
     if d >= n then
         maxD
     else
