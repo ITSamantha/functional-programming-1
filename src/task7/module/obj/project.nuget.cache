@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4crYENbTZZU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\src\\task7\\module\\module.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diana\\.nuget\\packages\\fsharp.core\\8.0.400\\fsharp.core.8.0.400.nupkg.sha512"
+  ],
+  "logs": []
+}

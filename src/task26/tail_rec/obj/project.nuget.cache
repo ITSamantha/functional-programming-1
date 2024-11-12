@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tFXC3PhouTQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\src\\task26\\tail_rec\\tail_rec.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diana\\.nuget\\packages\\fsharp.core\\8.0.400\\fsharp.core.8.0.400.nupkg.sha512"
+  ],
+  "logs": []
+}

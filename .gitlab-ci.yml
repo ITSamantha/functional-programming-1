@@ -1,23 +1,17 @@
-image: mcr.microsoft.com/dotnet/sdk:7.0
-
 stages:
   - build
   - lint
   - format
   - test
-  - run_python
-
-variables:
-  DOTNET_ROOT: "/root/.dotnet"
-  PATH: "$PATH:/root/.dotnet:/root/.dotnet/tools"
+  - run
 
 before_script:
   - apt-get update -y
-  - apt-get install -y python3 python3-pip
-  - dotnet tool install --global fantomas-tool --version "5.*" 
-  - dotnet tool install --global FSharpLint.Tool --version "0.14.*" 
+  - apt-get install -y dotnet-sdk-7.0
+  - apt-get install -y python3 python3-pip fsharp
   - pip3 install pylint
-
+  - dotnet tool install --global fantomas-tool --version "5.*"  
+  - dotnet tool install --global FSharpLint.Tool --version "0.14.*"  
 
 build:
   stage: build
@@ -31,7 +25,8 @@ build:
 lint:
   stage: lint
   script:
-    - fsharplint lint src
+    - fsharplint lint src/task7/task7.fs
+    - fsharplint lint src/task26/task26.fs
 
 format:
   stage: format
@@ -41,7 +36,7 @@ format:
     paths:
       - src
   only:
-    - merge_requests
+    - merge_requests 
 
 test:
   stage: test
@@ -52,8 +47,8 @@ test:
       - ./TestResults
 
 run_python:
-  stage: run_python
+  stage: run
   script:
-    - pylint src/task7/*.py src/task26/*.py
-    - python3 src/task7/task7.py
-    - python3 src/task26/task26.py
+    - pylint src/task7.py src/task26.py
+    - python3 src/task7.py 
+    - python3 src/task26.py  
