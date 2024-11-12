@@ -22,7 +22,7 @@ jobs:
           sudo apt-get install -y dotnet-sdk-7.0 python3 python3-pip fsharp
           pip3 install pylint
           dotnet tool install --global fantomas-tool --version "4.*"
-          
+
   build:
     runs-on: ubuntu-latest
     needs: setup
@@ -30,9 +30,20 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Build
+      - name: Build task7
         run: |
-          dotnet build src/task7/**/*.fsproj --no-restore --configuration Release
+          dotnet build src/task7/inf --no-restore --configuration Release
+          dotnet build src/task7/rec --no-restore --configuration Release
+          dotnet build src/task7/tail_rec --no-restore --configuration Release
+          dotnet build src/task7/module --no-restore --configuration Release
+          dotnet build src/task7/map --no-restore --configuration Release
+      - name: Build task26
+        run: |
+          dotnet build src/task26/inf --no-restore --configuration Release
+          dotnet build src/task26/rec --no-restore --configuration Release
+          dotnet build src/task26/tail_rec --no-restore --configuration Release
+          dotnet build src/task26/module --no-restore --configuration Release
+          dotnet build src/task26/map --no-restore --configuration Release
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
