@@ -55,12 +55,6 @@
             "locale": "zh-Hant"
           }
         }
-      },
-      "FSharpLint/0.2.8": {
-        "type": "package",
-        "build": {
-          "build/FSharpLint.targets": {}
-        }
       }
     }
   },
@@ -106,36 +100,11 @@
         "lib/netstandard2.1/zh-Hans/FSharp.Core.resources.dll",
         "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll"
       ]
-    },
-    "FSharpLint/0.2.8": {
-      "sha512": "sM6QCu8TKVtTl794yv8ginZqhl3t1Muf/33MTkF0DcUitSt4rAm/qGnds1S5OXla9TjpfrDolqvkAI2CIv/jOA==",
-      "type": "package",
-      "path": "fsharplint/0.2.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "FParsec.dll",
-        "FParsecCS.dll",
-        "FSharp.Compiler.Service.ProjectCracker.dll",
-        "FSharp.Compiler.Service.ProjectCrackerTool.exe",
-        "FSharp.Compiler.Service.ProjectCrackerTool.exe.config",
-        "FSharp.Compiler.Service.dll",
-        "FSharp.Core.dll",
-        "FSharpLint.Application.dll",
-        "FSharpLint.FAKE.dll",
-        "FSharpLint.Framework.dll",
-        "FSharpLint.MSBuildIntegration.dll",
-        "FSharpLint.Rules.dll",
-        "build/FSharpLint.targets",
-        "fsharplint.0.2.8.nupkg.sha512",
-        "fsharplint.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "FSharp.Core >= 8.0.400",
-      "FSharpLint >= 0.2.8"
+      "FSharp.Core >= 8.0.400"
     ]
   },
   "packageFolders": {
@@ -183,10 +152,6 @@
             "target": "Package",
             "version": "[8.0.400, )",
             "generatePathProperty": true
-          },
-          "FSharpLint": {
-            "target": "Package",
-            "version": "[0.2.8, )"
           }
         },
         "imports": [
