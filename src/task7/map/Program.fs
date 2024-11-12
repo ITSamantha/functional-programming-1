@@ -1,3 +1,5 @@
+module task7map
+
 let isPrimeNumber (number: int) : bool =
     let rec check (i: int) : bool =
         if number <= 1 then false
@@ -8,18 +10,18 @@ let isPrimeNumber (number: int) : bool =
 
     check 2
 
-
-[<EntryPoint>]
-let main _ =
+let findNthPrime (n: int) : int =
     let primesMap =
         Seq.initInfinite ((+) 2)
         |> Seq.filter isPrimeNumber
         |> Seq.mapi (fun i p -> (i, p))
 
-    let result =
-        primesMap
-        |> Seq.find (fun (i, _) -> i = 10001 - 1)
-        |> snd
+    primesMap
+    |> Seq.find (fun (i, _) -> i = n - 1)
+    |> snd
 
+[<EntryPoint>]
+let main _ =
+    let result = findNthPrime 10001
     printfn "%d" result
     0

@@ -1,3 +1,5 @@
+module task7tailrec
+
 let isPrimeNumber (number: int) : bool =
     let rec check (i: int) : bool =
         if number <= 1 then false

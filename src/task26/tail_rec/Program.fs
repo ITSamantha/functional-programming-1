@@ -1,5 +1,5 @@
-let cycleLength d =
-    let rec findCycle pos remainders rem =
+let cycleLength (d: int) : int =
+    let rec findCycle (pos: int) (remainders: Map<int, int>) (rem: int) : int =
         match Map.tryFind rem remainders with
         | Some (start) -> pos - start
         | None ->
@@ -12,7 +12,7 @@ let cycleLength d =
 
     findCycle 0 Map.empty 1
 
-let rec findMaxCycleTailRec n d maxD maxLen =
+let rec findMaxCycleTailRec (n: int) (d: int) (maxD: int) (maxLen: int) : int =
     if d >= n then
         maxD
     else
@@ -26,10 +26,8 @@ let rec findMaxCycleTailRec n d maxD maxLen =
 
         findMaxCycleTailRec n (d + 1) newMaxD newMaxLen
 
-
-
 [<EntryPoint>]
-let main _ =
+let main (_: string[]) : int =
     let result = findMaxCycleTailRec 1000 1 1 0
     printfn "%d" result
     0

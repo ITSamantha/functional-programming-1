@@ -1,3 +1,5 @@
+module task26inf
+
 let cycleLength d =
     let rec findCycle pos remainders rem =
         match Map.tryFind rem remainders with

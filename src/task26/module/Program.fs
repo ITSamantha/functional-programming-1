@@ -1,5 +1,7 @@
-let cycleLength d =
-    let rec findCycle pos remainders rem =
+module task26module
+
+let cycleLength (d: int) : int =
+    let rec findCycle (pos: int) (remainders: Map<int, int>) (rem: int) : int =
         match Map.tryFind rem remainders with
         | Some (start) -> pos - start
         | None ->
@@ -12,9 +14,12 @@ let cycleLength d =
 
     findCycle 0 Map.empty 1
 
+let findMaxCycleRec (candidates: List<int>) : int =
+    candidates |> List.maxBy cycleLength
+
 [<EntryPoint>]
-let main _ =
+let main (_: string[]) : int =
     let candidates = [ 1..999 ]
-    let result = candidates |> List.maxBy cycleLength
+    let result = findMaxCycleRec candidates
     printfn "%d" result
     0

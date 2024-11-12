@@ -1,0 +1,4 @@
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\task26\map\obj\Debug\net8.0\map.fsproj.AssemblyReference.cache
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\task26\map\obj\Debug\net8.0\map.AssemblyInfoInputs.cache
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\task26\map\obj\Debug\net8.0\map.AssemblyInfo.fs
+C:\Users\diana\Desktop\itmo\functional-programming\lab1\src\task26\map\obj\Debug\net8.0\map.fsproj.CoreCompileInputs.cache

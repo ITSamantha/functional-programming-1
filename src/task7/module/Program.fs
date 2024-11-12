@@ -1,3 +1,5 @@
+module task7module
+
 let isPrimeNumber (number: int) : bool =
     let rec check (i: int) : bool =
         if number <= 1 then false
@@ -8,12 +10,15 @@ let isPrimeNumber (number: int) : bool =
 
     check 2
 
-[<EntryPoint>]
-let main _ =
+let findNthPrime (n: int) : int =
     let primesSeq =
         Seq.initInfinite ((+) 2)
         |> Seq.filter isPrimeNumber
 
-    let result = Seq.item (10001 - 1) primesSeq
+    Seq.item (n - 1) primesSeq
+
+[<EntryPoint>]
+let main _ =
+    let result = findNthPrime 10001
     printfn "%d" result
     0
