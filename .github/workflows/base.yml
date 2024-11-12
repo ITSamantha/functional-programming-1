@@ -33,8 +33,7 @@ jobs:
 
       - name: Build
         run: |
-          dotnet restore src
-          dotnet build src --no-restore --configuration Release
+          dotnet build src/task7/**/*.fsproj --no-restore --configuration Release
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
