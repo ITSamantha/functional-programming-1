@@ -70,6 +70,36 @@ jobs:
           name: build
           path: '**/bin/Release'
 
+task7:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Run task7 applications
+        run: |
+          dotnet run --project src/task7/inf --configuration Release
+          dotnet run --project src/task7/rec --configuration Release
+          dotnet run --project src/task7/tail_rec --configuration Release
+          dotnet run --project src/task7/module --configuration Release
+          dotnet run --project src/task7/map --configuration Release
+
+  task26:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Run task26 applications
+        run: |
+          dotnet run --project src/task26/inf --configuration Release
+          dotnet run --project src/task26/rec --configuration Release
+          dotnet run --project src/task26/tail_rec --configuration Release
+          dotnet run --project src/task26/module --configuration Release
+          dotnet run --project src/task26/map --configuration Release
+
   test:
     runs-on: ubuntu-latest
     needs: build
