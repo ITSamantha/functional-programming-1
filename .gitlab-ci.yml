@@ -5,7 +5,9 @@ stages:
   - test
   - run
 
-image: ubuntu:latest
+image:
+  name: ubuntu:20.04
+  pull_policy: always
 
 before_script:
   - apt-get update -y
