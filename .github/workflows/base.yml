@@ -24,7 +24,9 @@ jobs:
           sudo apt-get install mono-complete
           pip3 install pylint
           dotnet tool install --global fantomas-tool --version "4.*"
-
+          
+      - name: Add .NET tools to PATH
+        run: echo "/home/runner/.dotnet/tools" >> $GITHUB_PATH
   build:
     runs-on: ubuntu-latest
     needs: setup
@@ -50,11 +52,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build
-          path: src/bin/Release
+          path: '**/bin/Release'
 
   lint:
     runs-on: ubuntu-latest
-    needs: setup
+    needs: build
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -69,7 +71,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: setup
+    needs: lint
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -85,7 +87,7 @@ jobs:
 
   run_python:
     runs-on: ubuntu-latest
-    needs: setup
+    needs: lint
     steps:
       - name: Check out code
         uses: actions/checkout@v4
