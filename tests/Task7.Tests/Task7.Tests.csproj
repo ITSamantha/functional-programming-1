@@ -20,7 +20,7 @@
    <ItemGroup>
     <ProjectReference Include="..\..\src\task7\inf\inf.fsproj" />
     <ProjectReference Include="..\..\src\task7\module\module.fsproj" />
-    <ProjectReference Include="..\..\src\task7\map.\map.fsproj" />
+    <ProjectReference Include="..\..\src\task7\map\map.fsproj" />
     <ProjectReference Include="..\..\src\task7\rec\rec.fsproj" />
     <ProjectReference Include="..\..\src\task7\tail_rec\tail_rec.fsproj" />
   </ItemGroup>
