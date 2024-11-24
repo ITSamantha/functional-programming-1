@@ -1160,6 +1160,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "FSharp.Core >= 8.0.400",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "NUnit >= 3.14.0",
       "NUnit.Analyzers >= 3.9.0",
@@ -1178,9 +1179,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\Task7.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\Task7.Tests.fsproj",
       "projectName": "Task7.Tests",
-      "projectPath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\Task7.Tests.csproj",
+      "projectPath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\Task7.Tests.fsproj",
       "packagesPath": "C:\\Users\\diana\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\obj\\",
       "projectStyle": "PackageReference",
@@ -1193,6 +1194,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\8.0.400\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1217,11 +1219,6 @@
           }
         }
       },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
-      },
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
@@ -1232,25 +1229,36 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "FSharp.Core": {
+            "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+            "target": "Package",
+            "version": "[8.0.400, )",
+            "generatePathProperty": true
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "[17.8.0, )"
+            "version": "[17.8.0, )",
+            "generatePathProperty": true
           },
           "NUnit": {
             "target": "Package",
-            "version": "[3.14.0, )"
+            "version": "[3.14.0, )",
+            "generatePathProperty": true
           },
           "NUnit.Analyzers": {
             "target": "Package",
-            "version": "[3.9.0, )"
+            "version": "[3.9.0, )",
+            "generatePathProperty": true
           },
           "NUnit3TestAdapter": {
             "target": "Package",
-            "version": "[4.5.0, )"
+            "version": "[4.5.0, )",
+            "generatePathProperty": true
           },
           "coverlet.collector": {
             "target": "Package",
-            "version": "[6.0.0, )"
+            "version": "[6.0.0, )",
+            "generatePathProperty": true
           }
         },
         "imports": [

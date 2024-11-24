@@ -66,14 +66,6 @@ jobs:
           dotnet build src/task26/tail_rec  --configuration Release
           dotnet build src/task26/module  --configuration Release
           dotnet build src/task26/map --configuration Release
-
-      - name: Build tests task7
-        run: |
-          dotnet build tests/Task7.Tests 
-          
-      - name: Build tests task26
-        run: |
-          dotnet build tests/Task26.Tests 
           
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3

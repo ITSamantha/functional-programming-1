@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SjqlHrKBx6o=",
+  "dgSpecHash": "QGCpPxxEZJk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\Task7.Tests.csproj",
+  "projectFilePath": "C:\\Users\\diana\\Desktop\\itmo\\functional-programming\\lab1\\tests\\Task7.Tests\\Task7.Tests.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\diana\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\diana\\.nuget\\packages\\fsharp.core\\8.0.400\\fsharp.core.8.0.400.nupkg.sha512",
